@@ -438,8 +438,8 @@ export const BALANCER_NETWORK_CONFIG: Record<Network, BalancerNetworkConfig> = {
     sorConnectingTokens: [],
   },
   // TODO: Update
-  [Network.DEVNET]: {
-    chainId: Network.DEVNET, //245022926
+  [Network.NEON_DEVNET]: {
+    chainId: Network.NEON_DEVNET, //245022926
     //Sobal deployment addresses: https://docs.beets.fi/technicals/deployments
     addresses: {
       contracts: {
@@ -487,8 +487,8 @@ export const BALANCER_NETWORK_CONFIG: Record<Network, BalancerNetworkConfig> = {
     ],
   },
   // TODO: Update
-  [Network.TESTNET]: {
-    chainId: Network.TESTNET, //245022940
+  [Network.NEON_MAINNET]: {
+    chainId: Network.NEON_MAINNET, //245022934
     //Sobal deployment addresses: https://docs.beets.fi/technicals/deployments
     addresses: {
       contracts: {
