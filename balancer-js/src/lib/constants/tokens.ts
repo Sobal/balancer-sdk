@@ -115,6 +115,30 @@ export const TOKENS_GOERLI: TokenConstants = {
   },
 };
 
+export const TOKENS_NEON_DEVNET: TokenConstants = {
+  Popular: {
+    Symbols: ['ETH', 'wNEON', 'wSOL', 'USDC', 'AAVE'],
+  },
+  Addresses: {
+    nativeAsset: '0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE',
+    wNativeAsset: '0x11adC2d986E334137b9ad0a0F290771F31e9517F',
+    WETH: '0x46E986B5b0f87F1026ff52Ce20340467199F891D',
+    BAL: '0x0000000000000000000000000000000000000000', // no bal on NEON
+  },
+};
+
+export const TOKENS_NEON_MAINNET: TokenConstants = {
+  Popular: {
+    Symbols: ['ETH', 'wNEON', 'wSOL', 'USDC'],
+  },
+  Addresses: {
+    nativeAsset: '0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE',
+    wNativeAsset: '0x202C35e517Fa803B537565c40F0a6965D7204609',
+    WETH: '0xcFFd84d468220c11be64dc9dF64eaFE02AF60e8A',
+    BAL: '0x0000000000000000000000000000000000000000', // no bal on NEON
+  },
+};
+
 export const TOKENS_GENERIC: TokenConstants = {
   Popular: {
     Symbols: ['WBTC', 'DAI', 'USDC', 'BAL', 'AAVE', 'WETH'],
@@ -133,6 +157,8 @@ export const TOKENS_MAP = {
   [Network.POLYGON]: TOKENS_POLYGON,
   [Network.ARBITRUM]: TOKENS_ARBITRUM,
   [Network.GNOSIS]: TOKENS_GNOSIS,
+  [Network.NEON_DEVNET]: TOKENS_NEON_DEVNET,
+  [Network.NEON_MAINNET]: TOKENS_NEON_MAINNET,
 };
 
 export function TOKENS(networkId: Network): TokenConstants {
