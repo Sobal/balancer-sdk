@@ -443,15 +443,15 @@ export const BALANCER_NETWORK_CONFIG: Record<Network, BalancerNetworkConfig> = {
     //Sobal deployment addresses: https://docs.sobal.fi/v/developers/deployments/neon-devnet
     addresses: {
       contracts: {
-        vault: '0x2e80d2Bf2a356F02c865cCc033EcC41746EA2Fe0',
-        multicall: '0xdbB145bB8Eba9f1aE22c192f31279dB4b3C1ACc6',
+        vault: '0x49CEEC2DaC51AEF3CEAa7d866F5d2488F1814D48',
+        multicall: '0xcA11bde05977b3631167028862bE2a173976CA11',
         poolDataQueries: '0x232B439032Da828a0845f13D4d17446040F70c79',
         gaugeClaimHelper: '0x0000000000000000000000000000000000000000', // no guages on neon
-        balancerRelayer: '0x5b31dc50E7Ba8DFbC024e666Dd68817903523938',
-        balancerHelpers: '0x703eD61D3185002AB6Bdc40dE0Da54Ca79eC189e',
-        weightedPoolFactory: '0xc828AbdEbe975d4d6e0345eB48d569A49A194A84',
+        balancerRelayer: '0x1BCaB9143061E3709caA9b612CC6AA8462848078',
+        balancerHelpers: '0xDD1b865EE4CB451D905164a28E2311ff8a7Ad321',
+        weightedPoolFactory: '0x2a48D000Ff815C3AE571c5121993150B600a6AF2',
         composableStablePoolFactory:
-          '0x2297E369aa665f1cE2eCB9eBe4Ec0E6D9f02f72D',
+          '0x314fF5B1e0A0F3cB7048819517aFf9B9d608b5A9',
       },
       tokens: {
         bal: '0x0000000000000000000000000000000000000000', // no token on neon
