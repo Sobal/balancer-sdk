@@ -2,7 +2,7 @@ import { Network } from './network';
 import { BalancerNetworkConfig } from '@/types';
 import addressesByNetwork from './addresses.json';
 
-export const balancerVault = '0xBA12222222228d8Ba445958a75a0704d566BF2C8';
+export const balancerVault = '0x2e80d2Bf2a356F02c865cCc033EcC41746EA2Fe0'; // Hardcoded for all chain exits - Now set to Neon devnet
 
 // Info fetched using npm package slot20
 export const BPT_SLOT = 0;
