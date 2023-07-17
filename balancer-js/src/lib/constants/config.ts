@@ -487,49 +487,46 @@ export const BALANCER_NETWORK_CONFIG: Record<Network, BalancerNetworkConfig> = {
   // TODO: Update
   [Network.NEON_MAINNET]: {
     chainId: Network.NEON_MAINNET, //245022934
-    //Sobal deployment addresses: https://docs.sobal.fi
+    //Sobal deployment addresses: https://docs.sobal.fi/v/developers/deployments/neon-mainnet
     addresses: {
       contracts: {
-        vault: '0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce',
-        multicall: '0x66335d7ad8011f6aa3f48aadcb523b62b38ed961',
-        poolDataQueries: '0xb132F1E145DcC085980C531e2dA81f2b84efc14F',
-        gaugeClaimHelper: '0x0000000000000000000000000000000000000000', // no guages on fantom
-        balancerRelayer: '0x419f7925b8c9e409b6ee8792242556fa210a7a09',
-        balancerHelpers: '0xfE18C7C70b0a2c6541bEde0367124278BC345Dc8',
-        weightedPoolFactory: '0x60467cb225092cE0c989361934311175f437Cf53',
+        vault: '0x3Ff78B826107b2FE41aDfbf9b2730658B3e52789',
+        multicall: '0x2f6eee8ee450a959e640b6fb4dd522b5d5dcd20f',
+        poolDataQueries: '0x1fC116b8A0e3e4029689F646a5Aacf9146E4ca98',
+        gaugeClaimHelper: '0x0000000000000000000000000000000000000000', // no guages on neon
+        balancerRelayer: '0xB037e2108071B4b07f359cF0C13fb0bDcF32dcB1',
+        balancerHelpers: '0x2a35f4842A9c2F1a2e5C4a48ac2e9eC1a016BDA4',
+        weightedPoolFactory: '0x38Ec2bd8A0EEAEfBad7e0D21e7fF87d9AD901010',
         composableStablePoolFactory:
-          '0x44814E3A603bb7F1198617995c5696C232F6e8Ed',
-        yearnLinearPoolFactory: '0x1f73ae6ed391a2b1e84ff988a1bb5394b78a4a71',
+          '0x404dB41fe07607E2488202f71A4F699aaE51C40E',
       },
       tokens: {
-        bal: '0xF24Bcf4d1e507740041C9cFd2DddB29585aDCe1e', //beets
-        wrappedNativeAsset: '0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83',
+        bal: '0x0000000000000000000000000000000000000000', // no token on neon
+        wrappedNativeAsset: '0x202C35e517Fa803B537565c40F0a6965D7204609',
         lbpRaisingTokens: [
-          '0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83', // WFTM
-          '0x04068DA6C83AFCFA0e13ba15A6696662335D5B75', // USDC
-          '0x8D11eC38a3EB5E956B052f67Da8Bdc9bef8Abf3E', // DAI
+          '0x202C35e517Fa803B537565c40F0a6965D7204609', // WNEON
+          '0xEA6B04272f9f62F997F666F07D3a974134f7FFb9', // USDC
+          '0x5f38248f339Bf4e84A2caf4e4c0552862dC9F82a', // WSOL
         ],
       },
     },
     urls: {
-      subgraph:
-        'https://api.thegraph.com/subgraphs/name/beethovenxfi/beethovenx-v2-fantom',
-      gaugesSubgraph: '', // no guages on fantom
-      blockNumberSubgraph:
-        'https://api.thegraph.com/subgraphs/name/beethovenxfi/fantom-blocks',
+      subgraph: 'https://thegraph.neonevm.org/subgraphs/name/sobal/sobal-pools',
+      gaugesSubgraph: '', // no guages on neon
     },
     thirdParty: {
       coingecko: {
-        nativeAssetId: 'ftm',
-        platformId: 'fantom',
+        nativeAssetId: 'neon',
+        platformId: 'neon-evm',
       },
     },
+    averageBlockTime: 2, //TODO: no block number subgraph so using average time - deploy subgraph in future for faster updates
     pools: {},
     poolsToIgnore: [],
     sorConnectingTokens: [
       {
-        symbol: 'wftm',
-        address: '0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83',
+        symbol: 'wNEON',
+        address: '0x202C35e517Fa803B537565c40F0a6965D7204609',
       },
     ],
   },
