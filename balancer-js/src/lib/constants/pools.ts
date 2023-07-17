@@ -590,12 +590,98 @@ const POOLS_GENERIC: Pools = {
   },
 };
 
+const POOLS_NEON_DEVNET: Pools = {
+  IdsMap: {},
+  Pagination: {
+    PerPage: 10,
+    PerPool: 10,
+    PerPoolInitial: 5,
+  },
+  DelegateOwner: '0xba1ba1ba1ba1ba1ba1ba1ba1ba1ba1ba1ba1ba1b',
+  ZeroAddress: '0x0000000000000000000000000000000000000000',
+  DynamicFees: {
+    Gauntlet: [],
+  },
+  BlockList: [''],
+  ExcludedPoolTypes: [
+    'Element',
+    'AaveLinear',
+    'Linear',
+    'ERC4626Linear',
+    'FX',
+    'Gyro2',
+    'Gyro3',
+    'GyroE',
+    'HighAmpComposableStable',
+    'FX',
+  ],
+  Stable: {
+    AllowList: [],
+  },
+  Investment: {
+    AllowList: [],
+  },
+  Factories: {
+    '0xc828AbdEbe975d4d6e0345eB48d569A49A194A84': 'weightedPool', // weighted pool v4
+    '0x04EF81349F5A2049D2D8261f33b7dC5bc0B33889': 'managedPool', // managed pool v2
+    '0x2297E369aa665f1cE2eCB9eBe4Ec0E6D9f02f72D': 'composableStablePool', // composable stable v5
+  },
+  Stakable: {
+    AllowList: [],
+  },
+  Metadata: {},
+};
+
+const POOLS_NEON_MAINNET: Pools = {
+  IdsMap: {},
+  Pagination: {
+    PerPage: 10,
+    PerPool: 10,
+    PerPoolInitial: 5,
+  },
+  DelegateOwner: '0xba1ba1ba1ba1ba1ba1ba1ba1ba1ba1ba1ba1ba1b',
+  ZeroAddress: '0x0000000000000000000000000000000000000000',
+  DynamicFees: {
+    Gauntlet: [],
+  },
+  BlockList: [''],
+  ExcludedPoolTypes: [
+    'Element',
+    'AaveLinear',
+    'Linear',
+    'ERC4626Linear',
+    'FX',
+    'Gyro2',
+    'Gyro3',
+    'GyroE',
+    'HighAmpComposableStable',
+    'FX',
+  ],
+  Stable: {
+    AllowList: [],
+  },
+  Investment: {
+    AllowList: [],
+  },
+  Factories: {
+    '0x38Ec2bd8A0EEAEfBad7e0D21e7fF87d9AD901010': 'weightedPool', // weighted pool v4
+    '0x6b2fe0b6eb5b277E35776988860d8Eff9015C267': 'managedPool', // managed pool v2
+    '0x404dB41fe07607E2488202f71A4F699aaE51C40E': 'composableStablePool', // composable stable v5
+  },
+  Stakable: {
+    AllowList: [],
+  },
+  Metadata: {},
+};
+
 const POOLS_MAP = {
   [Network.GOERLI]: POOLS_GOERLI,
   [Network.MAINNET]: POOLS_MAINNET,
   [Network.POLYGON]: POOLS_POLYGON,
   [Network.ARBITRUM]: POOLS_ARBITRUM,
   [Network.GNOSIS]: POOLS_GNOSIS,
+  [Network.NEON_DEVNET]: POOLS_NEON_DEVNET,
+  [Network.NEON_MAINNET]: POOLS_NEON_MAINNET,
 };
 
 export function POOLS(networkId: Network): Pools {
