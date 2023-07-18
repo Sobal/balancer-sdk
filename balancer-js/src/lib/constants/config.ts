@@ -2,7 +2,7 @@ import { Network } from './network';
 import { BalancerNetworkConfig } from '@/types';
 import addressesByNetwork from './addresses.json';
 
-export const balancerVault = '0x49CEEC2DaC51AEF3CEAa7d866F5d2488F1814D48'; // Hardcoded for all chain exits - Now set to Neon devnet
+export const balancerVault = '0x3Ff78B826107b2FE41aDfbf9b2730658B3e52789'; // Hardcoded for all chain exits - Now set to Neon Mainnet
 
 // Info fetched using npm package slot20
 export const BPT_SLOT = 0;
@@ -496,9 +496,9 @@ export const BALANCER_NETWORK_CONFIG: Record<Network, BalancerNetworkConfig> = {
         gaugeClaimHelper: '0x0000000000000000000000000000000000000000', // no guages on neon
         balancerRelayer: '0xB037e2108071B4b07f359cF0C13fb0bDcF32dcB1',
         balancerHelpers: '0x2a35f4842A9c2F1a2e5C4a48ac2e9eC1a016BDA4',
-        weightedPoolFactory: '0x38Ec2bd8A0EEAEfBad7e0D21e7fF87d9AD901010',
+        weightedPoolFactory: '0xd69A0B5C70f9a2Ab0Ca9A64b013827d87916a38b',
         composableStablePoolFactory:
-          '0x404dB41fe07607E2488202f71A4F699aaE51C40E',
+          '0xA71103988745BE72528a6F01Be28C9815aa9C4D1',
       },
       tokens: {
         bal: '0x0000000000000000000000000000000000000000', // no token on neon
