@@ -622,9 +622,10 @@ const POOLS_NEON_DEVNET: Pools = {
     AllowList: [],
   },
   Factories: {
-    '0x2a48D000Ff815C3AE571c5121993150B600a6AF2': 'weightedPool', // weighted pool v4
-    '0x0a0f3a5b6Ff6e00eCBC04178DF03E769A1BD17Cc': 'managedPool', // managed pool v2
-    '0x314fF5B1e0A0F3cB7048819517aFf9B9d608b5A9': 'composableStablePool', // composable stable v5
+    // !!lowercase
+    '0x2a48d000ff815c3ae571c5121993150b600a6af2': 'weightedPool', // weighted pool v4
+    '0x0a0f3a5b6ff6e00ecbc04178df03e769a1bd17cc': 'managedPool', // managed pool v2
+    '0x314ff5b1e0a0f3cb7048819517aff9b9d608b5a9': 'composableStablePool', // composable stable v5
   },
   Stakable: {
     AllowList: [],
@@ -664,9 +665,10 @@ const POOLS_NEON_MAINNET: Pools = {
     AllowList: [],
   },
   Factories: {
-    '0x38Ec2bd8A0EEAEfBad7e0D21e7fF87d9AD901010': 'weightedPool', // weighted pool v4
-    '0x6b2fe0b6eb5b277E35776988860d8Eff9015C267': 'managedPool', // managed pool v2
-    '0x404dB41fe07607E2488202f71A4F699aaE51C40E': 'composableStablePool', // composable stable v5
+    // !!lowercase
+    '0x38ec2bd8a0eeaefbad7e0d21e7ff87d9ad901010': 'weightedPool', // weighted pool v4
+    '0x6b2fe0b6eb5b277e35776988860d8eff9015c267': 'managedPool', // managed pool v2
+    '0x404db41fe07607e2488202f71a4f699aae51c40e': 'composableStablePool', // composable stable v5
   },
   Stakable: {
     AllowList: [],
