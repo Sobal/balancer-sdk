@@ -449,9 +449,9 @@ export const BALANCER_NETWORK_CONFIG: Record<Network, BalancerNetworkConfig> = {
         gaugeClaimHelper: '0x0000000000000000000000000000000000000000', // no guages on neon
         balancerRelayer: '0x1BCaB9143061E3709caA9b612CC6AA8462848078',
         balancerHelpers: '0xDD1b865EE4CB451D905164a28E2311ff8a7Ad321',
-        weightedPoolFactory: '0x806d7e2888FaB1311a4b93F016D2E497078D5B0C',
+        weightedPoolFactory: '0x0AEF3105c4F84d2c3CB4789C13c7f63680Fa6366',
         composableStablePoolFactory:
-          '0xC35abD8Fea41Ba96a4f7E91490139167Fe913797',
+          '0x000be463FCafEF5A20B20E9AA0b07e0b3B51875a',
       },
       tokens: {
         bal: '0x0000000000000000000000000000000000000000', // no token on neon
