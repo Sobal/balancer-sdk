@@ -622,9 +622,9 @@ const POOLS_NEON_DEVNET: Pools = {
     AllowList: [],
   },
   Factories: {
-    '0xc828AbdEbe975d4d6e0345eB48d569A49A194A84': 'weightedPool', // weighted pool v4
-    '0x04EF81349F5A2049D2D8261f33b7dC5bc0B33889': 'managedPool', // managed pool v2
-    '0x2297E369aa665f1cE2eCB9eBe4Ec0E6D9f02f72D': 'composableStablePool', // composable stable v5
+    '0x2a48D000Ff815C3AE571c5121993150B600a6AF2': 'weightedPool', // weighted pool v4
+    '0x0a0f3a5b6Ff6e00eCBC04178DF03E769A1BD17Cc': 'managedPool', // managed pool v2
+    '0x314fF5B1e0A0F3cB7048819517aFf9B9d608b5A9': 'composableStablePool', // composable stable v5
   },
   Stakable: {
     AllowList: [],
