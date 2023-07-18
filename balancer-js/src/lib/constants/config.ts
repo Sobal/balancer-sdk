@@ -449,9 +449,9 @@ export const BALANCER_NETWORK_CONFIG: Record<Network, BalancerNetworkConfig> = {
         gaugeClaimHelper: '0x0000000000000000000000000000000000000000', // no guages on neon
         balancerRelayer: '0x1BCaB9143061E3709caA9b612CC6AA8462848078',
         balancerHelpers: '0xDD1b865EE4CB451D905164a28E2311ff8a7Ad321',
-        weightedPoolFactory: '0x2a48D000Ff815C3AE571c5121993150B600a6AF2',
+        weightedPoolFactory: '0x806d7e2888FaB1311a4b93F016D2E497078D5B0C',
         composableStablePoolFactory:
-          '0x314fF5B1e0A0F3cB7048819517aFf9B9d608b5A9',
+          '0xC35abD8Fea41Ba96a4f7E91490139167Fe913797',
       },
       tokens: {
         bal: '0x0000000000000000000000000000000000000000', // no token on neon
@@ -511,7 +511,7 @@ export const BALANCER_NETWORK_CONFIG: Record<Network, BalancerNetworkConfig> = {
       },
     },
     urls: {
-      subgraph: 'https://thegraph.neonevm.org/subgraphs/name/sobal/sobal-pools',
+      subgraph: 'https://neon-subgraph.sobal.fi/sobal-pools',
       gaugesSubgraph: '', // no guages on neon
     },
     thirdParty: {
