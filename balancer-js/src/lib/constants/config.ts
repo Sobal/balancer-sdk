@@ -437,21 +437,20 @@ export const BALANCER_NETWORK_CONFIG: Record<Network, BalancerNetworkConfig> = {
     poolsToIgnore: [],
     sorConnectingTokens: [],
   },
-  // TODO: Update
   [Network.NEON_DEVNET]: {
     chainId: Network.NEON_DEVNET, //245022926
     //Sobal deployment addresses: https://docs.sobal.fi/v/developers/deployments/neon-devnet
     addresses: {
       contracts: {
-        vault: '0x49CEEC2DaC51AEF3CEAa7d866F5d2488F1814D48',
+        vault: '0x7122e35ceC2eED4A989D9b0A71998534A203972C',
         multicall: '0xcA11bde05977b3631167028862bE2a173976CA11',
-        poolDataQueries: '0xeE19B530797195e0673D6E5465159d6E12A3123b',
+        poolDataQueries: '0xfc075Cbe961922D04f05A6b1df1c0884274d28c4',
         gaugeClaimHelper: '0x0000000000000000000000000000000000000000', // no guages on neon
-        balancerRelayer: '0x1BCaB9143061E3709caA9b612CC6AA8462848078',
-        balancerHelpers: '0xDD1b865EE4CB451D905164a28E2311ff8a7Ad321',
-        weightedPoolFactory: '0x0AEF3105c4F84d2c3CB4789C13c7f63680Fa6366',
+        balancerRelayer: '0x12977Bed9E12028789B2075119F8CcfE192C9ED6',
+        balancerHelpers: '0xE637B979E14E26EdA9a7e572B27a87FB9F49c50E',
+        weightedPoolFactory: '0x8D88057B8CC9235d4C69db3c14fd8D4229a6ae35',
         composableStablePoolFactory:
-          '0x000be463FCafEF5A20B20E9AA0b07e0b3B51875a',
+          '0x60EF61C5C0f4213C7B2C02F64A575DC4BfDbF302',
       },
       tokens: {
         bal: '0x0000000000000000000000000000000000000000', // no token on neon
@@ -465,7 +464,7 @@ export const BALANCER_NETWORK_CONFIG: Record<Network, BalancerNetworkConfig> = {
     },
     urls: {
       subgraph:
-        'https://ch2-graph.neontest.xyz/subgraphs/name/sobal/sobal-test',
+        'https://ch2-graph.neontest.xyz/subgraphs/name/sobal/sobal-pools',
       gaugesSubgraph: '', // no guages on neon
     },
     thirdParty: {
@@ -484,7 +483,6 @@ export const BALANCER_NETWORK_CONFIG: Record<Network, BalancerNetworkConfig> = {
       },
     ],
   },
-  // TODO: Update
   [Network.NEON_MAINNET]: {
     chainId: Network.NEON_MAINNET, //245022934
     //Sobal deployment addresses: https://docs.sobal.fi/v/developers/deployments/neon-mainnet
