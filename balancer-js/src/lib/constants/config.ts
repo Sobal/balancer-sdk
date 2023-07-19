@@ -2,7 +2,7 @@ import { Network } from './network';
 import { BalancerNetworkConfig } from '@/types';
 import addressesByNetwork from './addresses.json';
 
-export const balancerVault = '0x3Ff78B826107b2FE41aDfbf9b2730658B3e52789'; // Hardcoded for all chain exits - Now set to Neon Mainnet
+export const balancerVault = '0x7122e35ceC2eED4A989D9b0A71998534A203972C'; // Hardcoded for all chain exits - Now set to Neon Mainnet
 
 // Info fetched using npm package slot20
 export const BPT_SLOT = 0;
@@ -490,15 +490,15 @@ export const BALANCER_NETWORK_CONFIG: Record<Network, BalancerNetworkConfig> = {
     //Sobal deployment addresses: https://docs.sobal.fi/v/developers/deployments/neon-mainnet
     addresses: {
       contracts: {
-        vault: '0x3Ff78B826107b2FE41aDfbf9b2730658B3e52789',
+        vault: '0x7122e35ceC2eED4A989D9b0A71998534A203972C',
         multicall: '0x2f6eee8ee450a959e640b6fb4dd522b5d5dcd20f',
-        poolDataQueries: '0x1fC116b8A0e3e4029689F646a5Aacf9146E4ca98',
+        poolDataQueries: '0xfc075Cbe961922D04f05A6b1df1c0884274d28c4',
         gaugeClaimHelper: '0x0000000000000000000000000000000000000000', // no guages on neon
-        balancerRelayer: '0xB037e2108071B4b07f359cF0C13fb0bDcF32dcB1',
-        balancerHelpers: '0x2a35f4842A9c2F1a2e5C4a48ac2e9eC1a016BDA4',
-        weightedPoolFactory: '0xd69A0B5C70f9a2Ab0Ca9A64b013827d87916a38b',
+        balancerRelayer: '0x12977Bed9E12028789B2075119F8CcfE192C9ED6',
+        balancerHelpers: '0xE637B979E14E26EdA9a7e572B27a87FB9F49c50E',
+        weightedPoolFactory: '0x8D88057B8CC9235d4C69db3c14fd8D4229a6ae35',
         composableStablePoolFactory:
-          '0xA71103988745BE72528a6F01Be28C9815aa9C4D1',
+          '0x60EF61C5C0f4213C7B2C02F64A575DC4BfDbF302',
       },
       tokens: {
         bal: '0x0000000000000000000000000000000000000000', // no token on neon
