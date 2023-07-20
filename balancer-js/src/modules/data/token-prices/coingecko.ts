@@ -145,6 +145,8 @@ export class CoingeckoPriceRepository implements Findable<Price> {
         return 'arbitrum-one';
       case 43114:
         return 'avalanche';
+      case 245022934:
+        return 'neon-evm';
     }
 
     return '2';
