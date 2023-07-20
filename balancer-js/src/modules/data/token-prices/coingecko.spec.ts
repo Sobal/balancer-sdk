@@ -4,24 +4,27 @@ import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
 
 const mockedResponse = {
-  '0x028171bca77440897b824ca71d1c56cac55b68a3': {
+  '0x202C35e517Fa803B537565c40F0a6965D7204609': {
+    // wNEON
     usd: 1.003,
     eth: 0.00063646,
   },
-  '0x3ed3b47dd13ec9a98b44e6204a523e766b225811': {
+  '0x5f38248f339Bf4e84A2caf4e4c0552862dC9F82a': {
+    // wSOL
     usd: 0.995015,
     eth: 0.00063114,
   },
-  '0xdac17f958d2ee523a2206206994597c13d831ec7': {
+  '0xEA6B04272f9f62F997F666F07D3a974134f7FFb9': {
+    // USDC
     usd: 1.001,
     eth: 0.00063693,
   },
-  '0x5c6ee304399dbdb9c8ef030ab642b10820db8f56': {},
+  '0x5f0155d08eF4aaE2B500AefB64A3419dA8bB611a': {}, // USDT
 };
 
 const addresses = Object.keys(mockedResponse);
 
-const repository = new CoingeckoPriceRepository(addresses, 1);
+const repository = new CoingeckoPriceRepository(addresses, 245022934);
 
 describe('coingecko repository', () => {
   let mock: MockAdapter;
