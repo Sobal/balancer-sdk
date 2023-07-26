@@ -489,7 +489,7 @@ export const BALANCER_NETWORK_CONFIG: Record<Network, BalancerNetworkConfig> = {
     addresses: {
       contracts: {
         vault: '0x7122e35ceC2eED4A989D9b0A71998534A203972C',
-        multicall: '0x2f6eee8ee450a959e640b6fb4dd522b5d5dcd20f',
+        multicall: '0xca11bde05977b3631167028862be2a173976ca11',
         poolDataQueries: '0xfc075Cbe961922D04f05A6b1df1c0884274d28c4',
         gaugeClaimHelper: '0x0000000000000000000000000000000000000000', // no guages on neon
         balancerRelayer: '0x12977Bed9E12028789B2075119F8CcfE192C9ED6',
