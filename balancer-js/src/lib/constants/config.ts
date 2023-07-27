@@ -176,24 +176,29 @@ export const BALANCER_NETWORK_CONFIG: Record<Network, BalancerNetworkConfig> = {
     //Goerli deployment addresses: https://docs.balancer.fi/reference/contracts/deployment-addresses/goerli.html
     addresses: {
       contracts: {
-        multicall: '0x77dCa2C955b15e9dE4dbBCf1246B4B85b651e50e',
-        poolDataQueries: '',
-        veBal: '0x33A99Dcc4C85C014cf12626959111D5898bbCAbF',
-        veBalProxy: '0xA1F107D1cD709514AE8A914eCB757E95f9cedB31',
-        erc4626LinearPoolFactory: '0xba240c856498e2d7a70af4911aafae0d6b565a5b',
-        aaveLinearPoolFactory: '0x76578ecf9a141296ec657847fb45b0585bcda3a6',
-        ...addressesByNetwork[Network.GOERLI].contracts,
+        vault: '0x7122e35ceC2eED4A989D9b0A71998534A203972C',
+        multicall: '0xca11bde05977b3631167028862be2a173976ca11',
+        poolDataQueries: '0xfc075Cbe961922D04f05A6b1df1c0884274d28c4',
+        gaugeClaimHelper: '0x0000000000000000000000000000000000000000', // no guages on neon
+        balancerRelayer: '0x12977Bed9E12028789B2075119F8CcfE192C9ED6',
+        balancerHelpers: '0xE637B979E14E26EdA9a7e572B27a87FB9F49c50E',
+        weightedPoolFactory: '0x8D88057B8CC9235d4C69db3c14fd8D4229a6ae35',
+        composableStablePoolFactory:
+          '0x60EF61C5C0f4213C7B2C02F64A575DC4BfDbF302',
       },
       tokens: {
-        bal: addressesByNetwork[Network.GOERLI].contracts.bal,
-        wrappedNativeAsset: addressesByNetwork[Network.GOERLI].contracts.weth,
+        bal: '0x0000000000000000000000000000000000000000', // no token on neon
+        wrappedNativeAsset: '0x202C35e517Fa803B537565c40F0a6965D7204609',
+        lbpRaisingTokens: [
+          '0x202C35e517Fa803B537565c40F0a6965D7204609', // WNEON
+          '0xEA6B04272f9f62F997F666F07D3a974134f7FFb9', // USDC
+          '0x5f38248f339Bf4e84A2caf4e4c0552862dC9F82a', // WSOL
+        ],
       },
     },
     urls: {
-      subgraph:
-        'https://api.thegraph.com/subgraphs/name/balancer-labs/balancer-goerli-v2',
-      gaugesSubgraph:
-        'https://api.thegraph.com/subgraphs/name/balancer-labs/balancer-gauges-goerli',
+      subgraph: 'https://api.thegraph.com/subgraphs/name/sobal/sobal-goerli',
+      gaugesSubgraph: '',
       blockNumberSubgraph:
         'https://api.thegraph.com/subgraphs/name/blocklytics/goerli-blocks',
     },
