@@ -10,7 +10,7 @@ import {
 } from '@ethersproject/providers';
 import { keccak256 } from '@ethersproject/solidity';
 import { formatBytes32String } from '@ethersproject/strings';
-import { getOnChainPools } from '@/modules/sor/pool-data/onChainData';
+import { getOnChainBalances } from '@/modules/sor/pool-data/onChainData';
 
 import {
   PoolWithMethods,
@@ -64,6 +64,7 @@ export const RPC_URLS: Record<number, string> = {
   [Network.GOERLI]: `http://127.0.0.1:8000`,
   [Network.POLYGON]: `http://127.0.0.1:8137`,
   [Network.ARBITRUM]: `http://127.0.0.1:8161`,
+  [Network.ZKEVM]: `http://127.0.0.1:8101`,
 };
 
 export const FORK_NODES: Record<number, string> = {
@@ -71,6 +72,7 @@ export const FORK_NODES: Record<number, string> = {
   [Network.GOERLI]: `${process.env.ALCHEMY_URL_GOERLI}`,
   [Network.POLYGON]: `${process.env.ALCHEMY_URL_POLYGON}`,
   [Network.ARBITRUM]: `${process.env.ALCHEMY_URL_ARBITRUM}`,
+  [Network.ZKEVM]: `${process.env.ALCHEMY_URL_ZKEVM}`,
 };
 
 /**
@@ -392,10 +394,10 @@ export const updateFromChain = async (
   network: Network,
   provider: JsonRpcProvider
 ): Promise<Pool> => {
-  const onChainPool = await getOnChainPools(
+  const onChainPool = await getOnChainBalances(
     [pool],
-    BALANCER_NETWORK_CONFIG[network].addresses.contracts.poolDataQueries,
     BALANCER_NETWORK_CONFIG[network].addresses.contracts.multicall,
+    BALANCER_NETWORK_CONFIG[network].addresses.contracts.vault,
     provider
   );
   return onChainPool[0];

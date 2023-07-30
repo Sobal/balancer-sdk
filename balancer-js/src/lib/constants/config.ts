@@ -61,6 +61,7 @@ export const BALANCER_NETWORK_CONFIG: Record<Network, BalancerNetworkConfig> = {
       '0x0afbd58beca09545e4fb67772faf3858e610bcd0',
       '0xf22ff21e17157340575158ad7394e068048dd98b',
       '0xf71d0774b214c4cf51e33eb3d30ef98132e4dbaa',
+      '0xe0e8ac08de6708603cfd3d23b613d2f80e3b7afb',
     ],
     sorConnectingTokens: [
       {
@@ -245,7 +246,10 @@ export const BALANCER_NETWORK_CONFIG: Record<Network, BalancerNetworkConfig> = {
     urls: {
       subgraph:
         'https://api.thegraph.com/subgraphs/name/beethovenxfi/beethovenx-optimism',
-      gaugesSubgraph: '',
+      gaugesSubgraph:
+        'https://api.thegraph.com/subgraphs/name/balancer-labs/balancer-gauges-optimism',
+      blockNumberSubgraph:
+        'https://api.thegraph.com/subgraphs/name/lyra-finance/optimism-mainnet-blocks',
     },
     pools: {},
     sorConnectingTokens: [
@@ -347,7 +351,7 @@ export const BALANCER_NETWORK_CONFIG: Record<Network, BalancerNetworkConfig> = {
     chainId: Network.SEPOLIA, //11155111
     addresses: {
       contracts: {
-        multicall: '0x25eef291876194aefad0d60dff89e268b90754bb',
+        multicall: '0xcA11bde05977b3631167028862bE2a173976CA11',
         poolDataQueries: '0x9805dcfD25e6De36bad8fe9D3Fe2c9b44B764102',
         ...addressesByNetwork[Network.SEPOLIA].contracts,
       },
@@ -359,7 +363,7 @@ export const BALANCER_NETWORK_CONFIG: Record<Network, BalancerNetworkConfig> = {
     },
     urls: {
       subgraph:
-        'https://api.studio.thegraph.com/proxy/24660/balancer-sepolia-v2/v0.0.1',
+        'https://api.studio.thegraph.com/query/24660/balancer-sepolia-v2/version/latest',
     },
     thirdParty: {
       coingecko: {
@@ -431,6 +435,8 @@ export const BALANCER_NETWORK_CONFIG: Record<Network, BalancerNetworkConfig> = {
     urls: {
       subgraph:
         'https://api.thegraph.com/subgraphs/name/balancer-labs/balancer-avalanche-v2',
+      gaugesSubgraph:
+        'https://api.thegraph.com/subgraphs/name/balancer-labs/balancer-gauges-avalanche',
     },
     thirdParty: {
       coingecko: {
