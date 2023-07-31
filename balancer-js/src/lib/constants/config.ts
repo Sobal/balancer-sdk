@@ -564,7 +564,7 @@ export const BALANCER_NETWORK_CONFIG: Record<Network, BalancerNetworkConfig> = {
       },
     },
     urls: {
-      subgraph: 'https://api.thegraph.com/subgraphs/name/sobal/sobal-base-goerli',
+      subgraph: 'https://api.studio.thegraph.com/query/50526/sobal-base/version/latest',
       gaugesSubgraph: '', // no guages on base
     },
     thirdParty: {
@@ -608,7 +608,7 @@ export const BALANCER_NETWORK_CONFIG: Record<Network, BalancerNetworkConfig> = {
       },
     },
     urls: {
-      subgraph: 'https://api.thegraph.com/subgraphs/name/sobal/sobal-base-goerli',
+      subgraph: 'https://api.studio.thegraph.com/query/50526/sobal-base-goerli/version/latest',
       gaugesSubgraph: '', // no guages on base
     },
     thirdParty: {
