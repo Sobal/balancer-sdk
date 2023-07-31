@@ -539,6 +539,94 @@ export const BALANCER_NETWORK_CONFIG: Record<Network, BalancerNetworkConfig> = {
       },
     ],
   },
+  [Network.BASE]: {
+    chainId: Network.BASE, //8453
+    //Sobal deployment addresses: https://docs.sobal.fi/v/developers/deployments/base
+    addresses: {
+      contracts: {
+        vault: '0x7122e35ceC2eED4A989D9b0A71998534A203972C',
+        multicall: '0xca11bde05977b3631167028862be2a173976ca11',
+        poolDataQueries: '0xfc075Cbe961922D04f05A6b1df1c0884274d28c4',
+        gaugeClaimHelper: '0x0000000000000000000000000000000000000000', // no guages on base
+        balancerRelayer: '0x12977Bed9E12028789B2075119F8CcfE192C9ED6',
+        balancerHelpers: '0xE637B979E14E26EdA9a7e572B27a87FB9F49c50E',
+        weightedPoolFactory: '0x8D88057B8CC9235d4C69db3c14fd8D4229a6ae35',
+        composableStablePoolFactory:
+          '0x60EF61C5C0f4213C7B2C02F64A575DC4BfDbF302',
+      },
+      tokens: {
+        bal: '0x0000000000000000000000000000000000000000', // no token on base
+        wrappedNativeAsset: '0x4200000000000000000000000000000000000006',
+        lbpRaisingTokens: [
+          '0x4200000000000000000000000000000000000006', // WETH
+          '0x50c5725949A6F0c72E6C4a641F24049A917DB0Cb', // DAI
+        ],
+      },
+    },
+    urls: {
+      subgraph: 'https://api.thegraph.com/subgraphs/name/sobal/sobal-base-goerli',
+      gaugesSubgraph: '', // no guages on base
+    },
+    thirdParty: {
+      coingecko: {
+        nativeAssetId: 'ethereum',
+        platformId: 'base',
+      },
+    },
+    averageBlockTime: 2, //TODO: no block number subgraph so using average time - deploy subgraph in future for faster updates
+    pools: {},
+    poolsToIgnore: [],
+    sorConnectingTokens: [
+      {
+        symbol: 'WETH',
+        address: '0x4200000000000000000000000000000000000006',
+      },
+    ],
+  },
+  [Network.BASE_GOERLI]: {
+    chainId: Network.BASE_GOERLI, //84531
+    //Sobal deployment addresses: https://docs.sobal.fi/v/developers/deployments/base-goerli
+    addresses: {
+      contracts: {
+        vault: '0x7122e35ceC2eED4A989D9b0A71998534A203972C',
+        multicall: '0xca11bde05977b3631167028862be2a173976ca11',
+        poolDataQueries: '0xfc075Cbe961922D04f05A6b1df1c0884274d28c4',
+        gaugeClaimHelper: '0x0000000000000000000000000000000000000000', // no guages on base
+        balancerRelayer: '0x12977Bed9E12028789B2075119F8CcfE192C9ED6',
+        balancerHelpers: '0xE637B979E14E26EdA9a7e572B27a87FB9F49c50E',
+        weightedPoolFactory: '0x8D88057B8CC9235d4C69db3c14fd8D4229a6ae35',
+        composableStablePoolFactory:
+          '0x60EF61C5C0f4213C7B2C02F64A575DC4BfDbF302',
+      },
+      tokens: {
+        bal: '0x0000000000000000000000000000000000000000', // no token on base
+        wrappedNativeAsset: '0x4200000000000000000000000000000000000006',
+        lbpRaisingTokens: [
+          '0x4200000000000000000000000000000000000006', // WETH
+          '0x174956bDfbCEb6e53089297cce4fE2825E58d92C', // DAI
+        ],
+      },
+    },
+    urls: {
+      subgraph: 'https://api.thegraph.com/subgraphs/name/sobal/sobal-base-goerli',
+      gaugesSubgraph: '', // no guages on base
+    },
+    thirdParty: {
+      coingecko: {
+        nativeAssetId: 'ethereum',
+        platformId: 'base',
+      },
+    },
+    averageBlockTime: 2, //TODO: no block number subgraph so using average time - deploy subgraph in future for faster updates
+    pools: {},
+    poolsToIgnore: [],
+    sorConnectingTokens: [
+      {
+        symbol: 'WETH',
+        address: '0x4200000000000000000000000000000000000006',
+      },
+    ],
+  },
 };
 
 export const networkAddresses = (
