@@ -109,8 +109,7 @@ export class ComposableStablePoolJoin implements JoinConcern {
      * V4: Update to use new create method with new salt parameter
      * V5: Fixed vulnerability. Functionally the same as V4.
      */
-    if (pool.poolTypeVersion <= 5)
-      return this.sortV1(wrappedNativeAsset, tokensIn, amountsIn, pool);
+    return this.sortV1(wrappedNativeAsset, tokensIn, amountsIn, pool);
     // Not release yet and needs tests to confirm
     // else if (values.pool.poolTypeVersion === 5)
     //   sortedValues = this.sortV4(
