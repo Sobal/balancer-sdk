@@ -569,7 +569,7 @@ export const BALANCER_NETWORK_CONFIG: Record<Network, BalancerNetworkConfig> = {
     },
     thirdParty: {
       coingecko: {
-        nativeAssetId: 'ethereum',
+        nativeAssetId: 'eth',
         platformId: 'base',
       },
     },
@@ -613,7 +613,7 @@ export const BALANCER_NETWORK_CONFIG: Record<Network, BalancerNetworkConfig> = {
     },
     thirdParty: {
       coingecko: {
-        nativeAssetId: 'ethereum',
+        nativeAssetId: 'eth',
         platformId: 'base',
       },
     },
