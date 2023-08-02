@@ -2,7 +2,7 @@ import { Network } from './network';
 import { BalancerNetworkConfig } from '@/types';
 import addressesByNetwork from './addresses.json';
 
-export const balancerVault = '0x7122e35ceC2eED4A989D9b0A71998534A203972C'; // Hardcoded for all chain exits - Now set to Neon Mainnet
+export const balancerVault = '0x7122e35ceC2eED4A989D9b0A71998534A203972C'; // TODO: Remove hardcoding on all chains
 
 // Info fetched using npm package slot20
 export const BPT_SLOT = 0;
