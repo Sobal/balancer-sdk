@@ -515,6 +515,7 @@ export const BALANCER_NETWORK_CONFIG: Record<Network, BalancerNetworkConfig> = {
         lbpRaisingTokens: [
           '0x202C35e517Fa803B537565c40F0a6965D7204609', // WNEON
           '0xEA6B04272f9f62F997F666F07D3a974134f7FFb9', // USDC
+          '0x5f0155d08ef4aae2b500aefb64a3419da8bb611a', // USDT
           '0x5f38248f339Bf4e84A2caf4e4c0552862dC9F82a', // WSOL
         ],
       },
