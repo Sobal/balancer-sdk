@@ -658,6 +658,94 @@ const POOLS_NEON_MAINNET: Pools = {
   Metadata: {},
 };
 
+const POOLS_BASE: Pools = {
+  IdsMap: {},
+  Pagination: {
+    PerPage: 10,
+    PerPool: 10,
+    PerPoolInitial: 5,
+  },
+  DelegateOwner: '0xba1ba1ba1ba1ba1ba1ba1ba1ba1ba1ba1ba1ba1b',
+  ZeroAddress: '0x0000000000000000000000000000000000000000',
+  DynamicFees: {
+    Gauntlet: [],
+  },
+  BlockList: [''],
+  ExcludedPoolTypes: [
+    'Element',
+    'AaveLinear',
+    'Linear',
+    'ERC4626Linear',
+    'FX',
+    'Gyro2',
+    'Gyro3',
+    'GyroE',
+    'HighAmpComposableStable',
+    'FX',
+  ],
+  Stable: {
+    AllowList: [
+      '0x6372ec09dbf0c2907bb7b1529a1fc6359310f1bd000000000000000000000009',
+    ],
+  },
+  Investment: {
+    AllowList: [],
+  },
+  Factories: {
+    // !!lowercase
+    '0x8d88057b8cc9235d4c69db3c14fd8d4229a6ae35': 'weightedPool', // weighted pool v4
+    '0x08e3814ad06be2a555a4c0d330a20078e5344dfd': 'managedPool', // managed pool v2
+    '0x60ef61c5c0f4213c7b2c02f64a575dc4bfdbf302': 'composableStablePool', // composable stable v5
+  },
+  Stakable: {
+    AllowList: [],
+  },
+  Metadata: {},
+};
+
+const POOLS_BASE_GOERLI: Pools = {
+  IdsMap: {},
+  Pagination: {
+    PerPage: 10,
+    PerPool: 10,
+    PerPoolInitial: 5,
+  },
+  DelegateOwner: '0xba1ba1ba1ba1ba1ba1ba1ba1ba1ba1ba1ba1ba1b',
+  ZeroAddress: '0x0000000000000000000000000000000000000000',
+  DynamicFees: {
+    Gauntlet: [],
+  },
+  BlockList: [''],
+  ExcludedPoolTypes: [
+    'Element',
+    'AaveLinear',
+    'Linear',
+    'ERC4626Linear',
+    'FX',
+    'Gyro2',
+    'Gyro3',
+    'GyroE',
+    'HighAmpComposableStable',
+    'FX',
+  ],
+  Stable: {
+    AllowList: [],
+  },
+  Investment: {
+    AllowList: [],
+  },
+  Factories: {
+    // !!lowercase
+    '0x8d88057b8cc9235d4c69db3c14fd8d4229a6ae35': 'weightedPool', // weighted pool v4
+    '0x08e3814ad06be2a555a4c0d330a20078e5344dfd': 'managedPool', // managed pool v2
+    '0x60ef61c5c0f4213c7b2c02f64a575dc4bfdbf302': 'composableStablePool', // composable stable v5
+  },
+  Stakable: {
+    AllowList: [],
+  },
+  Metadata: {},
+};
+
 const POOLS_MAP = {
   [Network.GOERLI]: POOLS_GOERLI,
   [Network.MAINNET]: POOLS_MAINNET,
@@ -666,6 +754,8 @@ const POOLS_MAP = {
   [Network.GNOSIS]: POOLS_GNOSIS,
   [Network.NEON_DEVNET]: POOLS_NEON_DEVNET,
   [Network.NEON_MAINNET]: POOLS_NEON_MAINNET,
+  [Network.BASE]: POOLS_BASE,
+  [Network.BASE_GOERLI]: POOLS_BASE_GOERLI,
 };
 
 export function POOLS(networkId: Network): Pools {
