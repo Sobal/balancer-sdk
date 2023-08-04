@@ -10,7 +10,7 @@ import {
   Network,
   PoolType,
   ProtocolId,
-} from '@balancer-labs/sdk';
+} from '@sobal/sdk';
 import { parseEther } from '@ethersproject/units';
 
 async function createLinearPool() {

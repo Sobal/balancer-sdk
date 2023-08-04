@@ -5,7 +5,7 @@
  * Run with:
  * yarn example ./examples/pools/join/join-with-eth.ts
  */
-import { BalancerSDK, Network } from '@balancer-labs/sdk';
+import { BalancerSDK, Network } from '@sobal/sdk';
 import { AddressZero } from '@ethersproject/constants';
 import {
   approveToken,

@@ -4,7 +4,7 @@
  * Run command
  * yarn example ./examples/pools/aprs/aprs.arbitrum.ts
  */
-import { BalancerSDK, Pool } from '@balancer-labs/sdk';
+import { BalancerSDK, Pool } from '@sobal/sdk';
 
 const sdk = new BalancerSDK({
   network: 42161,

@@ -11,7 +11,7 @@ import {
   BalancerSdkConfig,
   BalancerError,
   BalancerErrorCode,
-} from '@balancer-labs/sdk';
+} from '@sobal/sdk';
 
 const config: BalancerSdkConfig = {
   network: Network.MAINNET,

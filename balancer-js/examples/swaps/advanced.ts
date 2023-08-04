@@ -13,7 +13,7 @@ import {
   someJoinExit,
   buildRelayerCalls,
   canUseJoinExit,
-} from '@balancer-labs/sdk';
+} from '@sobal/sdk';
 import { BigNumber, parseFixed } from '@ethersproject/bignumber';
 import { Wallet } from '@ethersproject/wallet';
 import { AddressZero } from '@ethersproject/constants';

@@ -4,7 +4,7 @@
  * Run this example:
  * yarn example ./examples/pools/liquidity/liquidity.ts
  */
-import { BalancerSDK } from '@balancer-labs/sdk';
+import { BalancerSDK } from '@sobal/sdk';
 
 const sdk = new BalancerSDK({
   network: 1,

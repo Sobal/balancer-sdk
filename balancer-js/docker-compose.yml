@@ -13,7 +13,7 @@ services:
     command: npm run serve
     volumes: 
       - ${FRONTEND_DIR}:/app
-      - ./:/app/node_modules/@balancer-labs/sdk/
+      - ./:/app/node_modules/@sobal/sdk/
     ports:
       - 8080:8080
     env_file:

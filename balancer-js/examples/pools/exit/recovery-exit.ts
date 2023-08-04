@@ -9,7 +9,7 @@ import {
   insert,
   Network,
   truncateAddresses,
-} from '@balancer-labs/sdk';
+} from '@sobal/sdk';
 import { parseEther } from '@ethersproject/units';
 import { getTokenBalance, reset, setTokenBalance } from 'examples/helpers';
 

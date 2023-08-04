@@ -4,7 +4,7 @@
  * Run with:
  * yarn example ./examples/pools/join/join-with-tokens-in.ts
  */
-import { BalancerSDK, Network } from '@balancer-labs/sdk';
+import { BalancerSDK, Network } from '@sobal/sdk';
 import {
   approveToken,
   getTokenBalance,

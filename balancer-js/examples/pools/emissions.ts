@@ -4,7 +4,7 @@
  * How to run:
  * yarn example examples/pools/emissions.ts
  */
-import { BalancerSDK } from '@balancer-labs/sdk';
+import { BalancerSDK } from '@sobal/sdk';
 
 const sdk = new BalancerSDK({
   network: 1,
