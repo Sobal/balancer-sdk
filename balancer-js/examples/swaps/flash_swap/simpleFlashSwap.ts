@@ -10,7 +10,7 @@ Run with:
 yarn example ./examples/swaps/flash_swap/simpleFlashSwap.ts
 */
 
-import { Swaps, BALANCER_NETWORK_CONFIG } from '@balancer-labs/sdk';
+import { Swaps, BALANCER_NETWORK_CONFIG } from '@sobal/sdk';
 import { JsonRpcProvider } from '@ethersproject/providers';
 
 const provider = new JsonRpcProvider('http://127.0.0.1:8545/', 1);

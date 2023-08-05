@@ -1,7 +1,7 @@
 /**
  * Uses SDK to find spot price for pair in specific pool.
  * Uses SDK to find most liquid path for a pair and calculate spot price.
- * 
+ *
  * Run with:
  * yarn example ./examples/pools/spot-price.ts
  */
@@ -11,7 +11,7 @@ import {
   BalancerSdkConfig,
   BalancerError,
   BalancerErrorCode,
-} from '@balancer-labs/sdk';
+} from '@sobal/sdk';
 
 const config: BalancerSdkConfig = {
   network: Network.MAINNET,

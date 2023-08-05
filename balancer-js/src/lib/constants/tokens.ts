@@ -139,6 +139,30 @@ export const TOKENS_NEON_MAINNET: TokenConstants = {
   },
 };
 
+export const TOKENS_BASE: TokenConstants = {
+  Popular: {
+    Symbols: ['ETH', 'DAI', 'cbETH'],
+  },
+  Addresses: {
+    nativeAsset: '0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE',
+    wNativeAsset: '0x4200000000000000000000000000000000000006',
+    WETH: '0x4200000000000000000000000000000000000006',
+    BAL: '0x0000000000000000000000000000000000000000', // no bal on NEON
+  },
+};
+
+export const TOKENS_BASE_GOERLI: TokenConstants = {
+  Popular: {
+    Symbols: ['ETH', 'DAI', 'cbETH'],
+  },
+  Addresses: {
+    nativeAsset: '0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE',
+    wNativeAsset: '0x4200000000000000000000000000000000000006',
+    WETH: '0x4200000000000000000000000000000000000006',
+    BAL: '0x0000000000000000000000000000000000000000', // no bal on NEON
+  },
+};
+
 export const TOKENS_GENERIC: TokenConstants = {
   Popular: {
     Symbols: ['WBTC', 'DAI', 'USDC', 'BAL', 'AAVE', 'WETH'],
@@ -159,6 +183,8 @@ export const TOKENS_MAP = {
   [Network.GNOSIS]: TOKENS_GNOSIS,
   [Network.NEON_DEVNET]: TOKENS_NEON_DEVNET,
   [Network.NEON_MAINNET]: TOKENS_NEON_MAINNET,
+  [Network.BASE]: TOKENS_BASE,
+  [Network.BASE_GOERLI]: TOKENS_BASE_GOERLI,
 };
 
 export function TOKENS(networkId: Network): TokenConstants {

@@ -1,10 +1,10 @@
 /**
  * Display APRs
- * 
+ *
  * Run command:
  * yarn example ./examples/pools/aprs/aprs.polygon.ts
  */
-import { BalancerSDK } from '@balancer-labs/sdk';
+import { BalancerSDK } from '@sobal/sdk';
 
 const sdk = new BalancerSDK({
   network: 137,

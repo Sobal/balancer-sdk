@@ -1,4 +1,4 @@
-import { BalancerSDK, Network, PoolJoinExit } from '@balancer-labs/sdk';
+import { BalancerSDK, Network, PoolJoinExit } from '@sobal/sdk';
 
 // Balancer subgraph : https://api.thegraph.com/subgraphs/name/balancer-labs/balancer-polygon-v2
 

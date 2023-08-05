@@ -4,7 +4,7 @@
  * Run command:
  * yarn example ./examples/pools/create/create-weighted-pool.ts
  */
-import { BalancerSDK, Network, PoolType } from '@balancer-labs/sdk';
+import { BalancerSDK, Network, PoolType } from '@sobal/sdk';
 import { reset, setTokenBalance, approveToken } from 'examples/helpers';
 import { AddressZero } from '@ethersproject/constants';
 import { parseFixed } from '@ethersproject/bignumber';
@@ -27,7 +27,7 @@ async function createAndInitJoinWeightedPool() {
   ];
 
   // Prepare local fork for simulation
-  await reset(balancer.provider, 17347414);
+  await reset(balancer.provider, 17700000);
   await setTokenBalance(
     balancer.provider,
     ownerAddress,

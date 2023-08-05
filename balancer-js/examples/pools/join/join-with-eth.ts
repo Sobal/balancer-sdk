@@ -5,7 +5,7 @@
  * Run with:
  * yarn example ./examples/pools/join/join-with-eth.ts
  */
-import { BalancerSDK, Network } from '@balancer-labs/sdk';
+import { BalancerSDK, Network } from '@sobal/sdk';
 import { AddressZero } from '@ethersproject/constants';
 import {
   approveToken,
@@ -45,7 +45,7 @@ async function join() {
   const address = await signer.getAddress();
 
   // Prepare local fork for simulation
-  await reset(provider, 17000000);
+  await reset(provider, 17700000);
   await setTokenBalance(provider, address, tokensIn[0], amountsIn[0], slots[0]);
   await approveToken(
     tokensIn[0],

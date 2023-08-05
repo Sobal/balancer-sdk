@@ -1,21 +1,21 @@
 /**
  * Display APRs
- *
+ * 
  * Run command:
- * yarn example ./examples/pools/aprs/aprs.zkevm.ts
+ * yarn example ./examples/pools/aprs/aprs.optimism.ts
  */
 import { BalancerSDK } from '@sobal/sdk';
 
 const sdk = new BalancerSDK({
-  network: 1101,
-  rpcUrl: 'https://rpc.ankr.com/polygon_zkevm',
+  network: 10,
+  rpcUrl: 'https://rpc.ankr.com/optimism',
 });
 
 const { pools } = sdk;
 
 const main = async () => {
   const pool = await pools.find(
-    '0xe1f2c039a68a216de6dd427be6c60decf405762a00000000000000000000000e'
+    '0x7ca75bdea9dede97f8b13c6641b768650cb837820002000000000000000000d5'
   );
 
   if (pool) {

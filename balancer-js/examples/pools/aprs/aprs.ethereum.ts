@@ -2,7 +2,7 @@
  * Display APRs for pool ids hardcoded under `const ids`
  * Run command: yarn example ./examples/pools/aprs/aprs.ethereum.ts
  */
-import { BalancerSDK } from '@balancer-labs/sdk';
+import { BalancerSDK } from '@sobal/sdk';
 
 const sdk = new BalancerSDK({
   network: 1,
