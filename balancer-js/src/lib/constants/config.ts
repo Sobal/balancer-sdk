@@ -523,6 +523,7 @@ export const BALANCER_NETWORK_CONFIG: Record<Network, BalancerNetworkConfig> = {
     urls: {
       subgraph: 'https://neon-subgraph.sobal.fi/sobal-pools',
       gaugesSubgraph: '', // no guages on neon
+      blockNumberSubgraph: 'https://neon-subgraph.sobal.fi/sobal-neon-blocks',
     },
     thirdParty: {
       coingecko: {
@@ -530,7 +531,6 @@ export const BALANCER_NETWORK_CONFIG: Record<Network, BalancerNetworkConfig> = {
         platformId: 'neon-evm',
       },
     },
-    averageBlockTime: 0.4, //TODO: no block number subgraph so using average time - deploy subgraph in future for faster updates
     pools: {},
     poolsToIgnore: [],
     sorConnectingTokens: [
@@ -568,7 +568,7 @@ export const BALANCER_NETWORK_CONFIG: Record<Network, BalancerNetworkConfig> = {
       subgraph: 'https://api.studio.thegraph.com/query/50526/sobal-base/version/latest',
       gaugesSubgraph: '', // no guages on base
       blockNumberSubgraph:
-        'https://api.studio.thegraph.com/query/48427/bleu-base-blocks/version/latest',
+        'https://api.studio.thegraph.com/query/50526/sobal-base-blocks/version/latest',
     },
     thirdParty: {
       coingecko: {
