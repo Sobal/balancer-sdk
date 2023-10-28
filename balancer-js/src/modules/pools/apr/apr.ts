@@ -19,6 +19,8 @@ import { PoolFees } from '../fees/fees';
 import { BALANCER_NETWORK_CONFIG } from '@/lib/constants/config';
 import { BigNumber } from '@ethersproject/bignumber';
 import { Logger } from '@/lib/utils/logger';
+import { GyroConfigRepository } from '@/modules/data/gyro-config/repository';
+import { poolsToIgnore } from '@/lib/constants/poolsToIgnore';
 
 export interface AprBreakdown {
   swapFees: number;
@@ -59,7 +61,8 @@ export class PoolApr {
     private feeCollector: Findable<number>,
     private yesterdaysPools?: Findable<Pool, PoolAttribute>,
     private liquidityGauges?: Findable<LiquidityGauge>,
-    private feeDistributor?: BaseFeeDistributor
+    private feeDistributor?: BaseFeeDistributor,
+    private gyroConfigRepository?: GyroConfigRepository
   ) {}
 
   /**
@@ -110,11 +113,13 @@ export class PoolApr {
       bptFreeTokens.map(async (token) => {
         let apr = 0;
         const tokenYield = await this.tokenYields.find(token.address);
-
         if (tokenYield) {
           // metastable pools incorrectly apply the swap fee to the yield earned.
           // they don't have the concept of a yield fee like the newer pools do.
-          if (pool.poolType === 'MetaStable') {
+          if (
+            pool.poolType === 'MetaStable' ||
+            pool.poolType.includes('Gyro')
+          ) {
             apr =
               tokenYield * (1 - (await this.protocolSwapFeePercentage(pool)));
           } else if (
@@ -271,14 +276,15 @@ export class PoolApr {
       throw 'Missing BAL price';
     }
 
+    const gaugeSupply = (gauge.workingSupply + 0.4) / 0.4; // Only 40% of LP token staked accrue emissions, totalSupply = workingSupply * 2.5
+    const gaugeSupplyUsd = gaugeSupply * bptPriceUsd;
+
     // Handle child chain gauges with inflation_rate
     // balInflationRate - amount of BAL tokens per second as a float
     if (gauge.balInflationRate) {
       const reward =
         gauge.balInflationRate * 86400 * 365 * parseFloat(balPrice.usd);
-      const totalSupplyUsd = gauge.totalSupply * bptPriceUsd;
-      const rewardValue = reward / totalSupplyUsd;
-      return Math.round(boost * 10000 * rewardValue);
+      return Math.round((boost * 10000 * reward) / gaugeSupplyUsd);
     } else if (pool.chainId > 1) {
       // TODO: remove after all gauges are migrated (around 01-07-2023), Subgraph is returning BAL staking rewards as reward tokens for L2 gauges.
       if (!gauge.rewardTokens) {
@@ -302,8 +308,6 @@ export class PoolApr {
     const totalBalEmissions = (emissions.weekly(now) / 7) * 365;
     const gaugeBalEmissions = totalBalEmissions * gauge.relativeWeight;
     const gaugeBalEmissionsUsd = gaugeBalEmissions * balPriceUsd;
-    const gaugeSupply = (gauge.workingSupply + 0.4) / 0.4; // Only 40% of LP token staked accrue emissions, totalSupply = workingSupply * 2.5
-    const gaugeSupplyUsd = gaugeSupply * bptPriceUsd;
     const gaugeBalAprBps = Math.round(
       (boost * 10000 * gaugeBalEmissionsUsd) / gaugeSupplyUsd
     );
@@ -408,6 +412,26 @@ export class PoolApr {
    * @returns pool APR split [bsp]
    */
   async apr(pool: Pool): Promise<AprBreakdown> {
+    if (poolsToIgnore.includes(pool.id)) {
+      return {
+        swapFees: 0,
+        tokenAprs: {
+          total: 0,
+          breakdown: {},
+        },
+        stakingApr: {
+          min: 0,
+          max: 0,
+        },
+        rewardAprs: {
+          total: 0,
+          breakdown: {},
+        },
+        protocolApr: 0,
+        min: 0,
+        max: 0,
+      };
+    }
     const [
       swapFees,
       tokenAprs,
@@ -480,19 +504,14 @@ export class PoolApr {
   }
 
   private async protocolSwapFeePercentage(pool: Pool) {
-    let fee = 0;
-
-    if (
-      pool.poolType == 'ComposableStable' ||
-      (pool.poolType == 'Weighted' && pool.poolTypeVersion == 2)
-    ) {
-      fee = 0;
+    let fee = 0.5;
+    if (pool.poolType.includes('Gyro') && this.gyroConfigRepository) {
+      fee = await this.gyroConfigRepository.getGyroProtocolFee(pool.address);
     } else if (pool.protocolSwapFeeCache) {
       fee = parseFloat(pool.protocolSwapFeeCache);
     } else {
-      fee = (await this.feeCollector.find('')) || 0;
+      fee = (await this.feeCollector.find('')) || 0.5;
     }
-
     return fee;
   }
 

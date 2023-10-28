@@ -18,7 +18,10 @@ export const BALANCER_NETWORK_CONFIG: Record<Network, BalancerNetworkConfig> = {
         poolDataQueries: '0xf5CDdF6feD9C589f1Be04899F48f9738531daD59',
         lidoRelayer: '0xdcdbf71A870cc60C6F9B621E28a7D3Ffd6Dd4965',
         veBal: '0xC128a9954e6c874eA3d62ce62B468bA073093F25',
+        gaugeControllerCheckpointer:
+          '0x8e5698dc4897dc12243c8642e77b4f21349db97c',
         veBalProxy: '0x6f5a2eE11E7a772AeB5114A20d0D7c0ff61EB8A0',
+        gyroConfigProxy: '0xac89cc9d78bbad7eb3a02601b4d65daa1f908aa6',
         ...addressesByNetwork[Network.MAINNET].contracts,
       },
       tokens: {
@@ -61,7 +64,6 @@ export const BALANCER_NETWORK_CONFIG: Record<Network, BalancerNetworkConfig> = {
       '0x0afbd58beca09545e4fb67772faf3858e610bcd0',
       '0xf22ff21e17157340575158ad7394e068048dd98b',
       '0xf71d0774b214c4cf51e33eb3d30ef98132e4dbaa',
-      '0xe0e8ac08de6708603cfd3d23b613d2f80e3b7afb',
     ],
     sorConnectingTokens: [
       {
@@ -86,6 +88,7 @@ export const BALANCER_NETWORK_CONFIG: Record<Network, BalancerNetworkConfig> = {
         multicall: '0xa1B2b503959aedD81512C37e9dce48164ec6a94d',
         poolDataQueries: '0x84813aA3e079A665C0B80F944427eE83cBA63617',
         gaugeClaimHelper: '0xaeb406b0e430bf5ea2dc0b9fe62e4e53f74b3a33',
+        gyroConfigProxy: '0xfdc2e9e03f515804744a40d0f8d25c16e93fbe67',
         ...addressesByNetwork[Network.POLYGON].contracts,
       },
       tokens: {
@@ -171,6 +174,10 @@ export const BALANCER_NETWORK_CONFIG: Record<Network, BalancerNetworkConfig> = {
         address: '0x82aF49447D8a07e3bd95BD0d56f35241523fBab1',
       },
     ],
+    sorTriPathMidPoolIds: [
+      '0x178e029173417b1f9c8bc16dcec6f697bc323746000200000000000000000158', // wstEth/USDC.e to open up auraBAL/USDC
+      '0x0052688295413b32626d226a205b95cdb337de860002000000000000000003d1', // arb/USDC.e to open up aura/USDC
+    ],
   },
   [Network.GOERLI]: {
     chainId: Network.GOERLI, //5
@@ -224,6 +231,7 @@ export const BALANCER_NETWORK_CONFIG: Record<Network, BalancerNetworkConfig> = {
       contracts: {
         multicall: '0x2dc0e2aa608532da689e89e237df582b783e552c',
         poolDataQueries: '0x6B5dA774890Db7B7b96C6f44e6a4b0F657399E2e',
+        gyroConfigProxy: '0x32acb44fc929339b9f16f0449525cc590d2a23f3',
         ...addressesByNetwork[Network.OPTIMISM].contracts,
       },
       tokens: {
@@ -297,6 +305,9 @@ export const BALANCER_NETWORK_CONFIG: Record<Network, BalancerNetworkConfig> = {
         symbol: 'wsEth',
         address: '0x6C76971f98945AE98dD7d4DFcA8711ebea946eA6',
       },
+    ],
+    sorTriPathMidPoolIds: [
+      '0xeb30c85cc528537f5350cf5684ce6a4538e13394000200000000000000000059', // 3POOL_BPT/wstETH
     ],
   },
   [Network.FANTOM]: {
@@ -403,6 +414,7 @@ export const BALANCER_NETWORK_CONFIG: Record<Network, BalancerNetworkConfig> = {
       },
     },
     averageBlockTime: 4,
+    multicallBatchSize: 128,
     pools: {},
     poolsToIgnore: [],
     sorConnectingTokens: [
@@ -437,6 +449,8 @@ export const BALANCER_NETWORK_CONFIG: Record<Network, BalancerNetworkConfig> = {
         'https://api.thegraph.com/subgraphs/name/balancer-labs/balancer-avalanche-v2',
       gaugesSubgraph:
         'https://api.thegraph.com/subgraphs/name/balancer-labs/balancer-gauges-avalanche',
+      blockNumberSubgraph:
+        'https://api.thegraph.com/subgraphs/name/iliaazhel/avalanche-blocks',
     },
     thirdParty: {
       coingecko: {
@@ -446,7 +460,16 @@ export const BALANCER_NETWORK_CONFIG: Record<Network, BalancerNetworkConfig> = {
     },
     pools: {},
     poolsToIgnore: [],
-    sorConnectingTokens: [],
+    sorConnectingTokens: [
+      {
+        symbol: 'WAVAX',
+        address: '0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7',
+      },
+      {
+        symbol: 'sAVAX',
+        address: '0x2b2c81e08f1af8835a78bb2a90ae924ace0ea4be',
+      },
+    ],
   },
   [Network.NEON_DEVNET]: {
     chainId: Network.NEON_DEVNET, //245022926
@@ -485,6 +508,7 @@ export const BALANCER_NETWORK_CONFIG: Record<Network, BalancerNetworkConfig> = {
       },
     },
     averageBlockTime: 2, //TODO: no block number subgraph so using average time - deploy subgraph in future for faster updates
+    multicallBatchSize: 128,
     pools: {},
     poolsToIgnore: [],
     sorConnectingTokens: [
@@ -531,6 +555,7 @@ export const BALANCER_NETWORK_CONFIG: Record<Network, BalancerNetworkConfig> = {
         platformId: 'neon-evm',
       },
     },
+    multicallBatchSize: 128,
     pools: {},
     poolsToIgnore: [],
     sorConnectingTokens: [

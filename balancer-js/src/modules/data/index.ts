@@ -1,3 +1,5 @@
+import { GyroConfigRepositoryImpl } from '@/modules/data/gyro-config/repository';
+
 export * as balEmissions from './bal/emissions';
 export * from './gauge-controller/multicall';
 export * from './gauge-shares';
@@ -51,7 +53,7 @@ import { Contracts } from '../contracts/contracts.module';
 
 export class Data implements BalancerDataRepositories {
   pools;
-  poolsForSor;
+  poolsForSimulations;
   poolsOnChain;
   yesterdaysPools;
   poolShares;
@@ -67,6 +69,7 @@ export class Data implements BalancerDataRepositories {
   tokenYields;
   blockNumbers;
   poolJoinExits;
+  gyroConfigRepository;
 
   constructor(
     networkConfig: BalancerNetworkConfig,
@@ -80,7 +83,8 @@ export class Data implements BalancerDataRepositories {
       query: subgraphQuery,
     });
 
-    this.poolsForSor = new SubgraphPoolDataService(
+    // Used for VaultModel and Simulations
+    this.poolsForSimulations = new SubgraphPoolDataService(
       createSubgraphClient(networkConfig.urls.subgraph),
       provider,
       networkConfig,
@@ -95,7 +99,8 @@ export class Data implements BalancerDataRepositories {
         multicall: networkConfig.addresses.contracts.multicall,
         vault: networkConfig.addresses.contracts.vault,
       },
-      networkConfig.poolsToIgnore
+      networkConfig.poolsToIgnore,
+      networkConfig.multicallBatchSize
     );
 
     this.poolShares = new PoolSharesRepository(
@@ -196,7 +201,8 @@ export class Data implements BalancerDataRepositories {
         networkConfig.urls.gaugesSubgraph,
         contracts.contracts.multicall,
         networkConfig.addresses.contracts.gaugeController || '',
-        networkConfig.chainId
+        networkConfig.chainId,
+        networkConfig.addresses.contracts.gaugeControllerCheckpointer
       );
     }
 
@@ -229,5 +235,13 @@ export class Data implements BalancerDataRepositories {
     }
 
     this.tokenYields = new TokenYieldsRepository();
+
+    if (networkConfig.addresses.contracts.gyroConfigProxy) {
+      this.gyroConfigRepository = new GyroConfigRepositoryImpl(
+        networkConfig.addresses.contracts.gyroConfigProxy,
+        contracts.contracts.multicall,
+        provider
+      );
+    }
   }
 }

@@ -6,7 +6,7 @@ import {
   SubgraphClient,
 } from '@/modules/subgraph/subgraph';
 import { parseInt } from 'lodash';
-import { getOnChainBalances } from './onChainData';
+import { getOnChainBalances } from './onChainData3';
 import { Provider } from '@ethersproject/providers';
 import {
   BalancerNetworkConfig,
@@ -20,6 +20,7 @@ import {
 } from '@/lib/graphql/args-builder';
 
 import { isSameAddress } from '@/lib/utils';
+import { Logger } from '@/lib/utils/logger';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function mapPools(pools: any[]): SubgraphPoolBase[] {
@@ -74,7 +75,6 @@ export class SubgraphPoolDataService implements PoolDataService {
     const pools = await this.getSubgraphPools(queryArgs);
 
     const filteredPools = pools.filter((p) => {
-      if (p.poolType === 'FX') return false;
       if (!this.network.poolsToIgnore) return true;
       const index = this.network.poolsToIgnore.findIndex((addr) =>
         isSameAddress(addr, p.address)
@@ -88,14 +88,18 @@ export class SubgraphPoolDataService implements PoolDataService {
       return mapped;
     }
 
-    console.time(`fetching on-chain balances for ${mapped.length} pools`);
+    const logger = Logger.getInstance();
+    logger.time(`fetching on-chain balances for ${mapped.length} pools`);
+
     const onChainBalances = await getOnChainBalances(
       mapped,
       this.network.addresses.contracts.multicall,
       this.network.addresses.contracts.vault,
-      this.provider
+      this.provider,
+      this.network.multicallBatchSize
     );
-    console.timeEnd(`fetching on-chain balances for ${mapped.length} pools`);
+
+    logger.timeEnd(`fetching on-chain balances for ${mapped.length} pools`);
 
     return onChainBalances;
   }
