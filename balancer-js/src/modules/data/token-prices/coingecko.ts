@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
-import { Price, Findable, TokenPrices, Network } from '@/types';
-import axios from 'axios';
+import { Findable, Network, Price, TokenPrices } from '@/types';
+import axios, { AxiosError } from 'axios';
 import { TOKENS } from '@/lib/constants/tokens';
 import { Debouncer, tokenAddressForPricing } from '@/lib/utils';
 
@@ -21,34 +21,31 @@ export class CoingeckoPriceRepository implements Findable<Price> {
     )}?vs_currencies=usd,eth`;
     this.debouncer = new Debouncer<TokenPrices, string>(
       this.fetch.bind(this),
-      200
+      200,
+      10
     );
   }
 
-  private fetch(
+  private async fetch(
     addresses: string[],
     { signal }: { signal?: AbortSignal } = {}
   ): Promise<TokenPrices> {
-    console.time(`fetching coingecko for ${addresses.length} tokens`);
-    return axios
-      .get<TokenPrices>(this.url(addresses), { signal })
-      .then(({ data }) => {
-        return data;
-      })
-      .catch((error) => {
-        const message = ['Error fetching token prices from coingecko'];
-        if (error.isAxiosError) {
-          if (error.response?.status) {
-            message.push(`with status ${error.response.status}`);
-          }
-        } else {
-          message.push(error);
-        }
-        return Promise.reject(message.join(' '));
-      })
-      .finally(() => {
-        console.timeEnd(`fetching coingecko for ${addresses.length} tokens`);
+    try {
+      const { data } = await axios.get<TokenPrices>(this.url(addresses), {
+        signal,
       });
+      return data;
+    } catch (error) {
+      const message = ['Error fetching token prices from coingecko'];
+      if ((error as AxiosError).isAxiosError) {
+        if ((error as AxiosError).response?.status !== undefined) {
+          message.push(`with status ${(error as AxiosError).response?.status}`);
+        }
+      } else {
+        message.push(error as string);
+      }
+      return Promise.reject(message.join(' '));
+    }
   }
 
   private fetchNative({
