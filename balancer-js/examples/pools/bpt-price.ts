@@ -1,4 +1,4 @@
-import { BalancerSDK } from '@balancer-labs/sdk';
+import { BalancerSDK } from '@sobal/sdk';
 
 const sdk = new BalancerSDK({
   network: 1,
