@@ -10,7 +10,7 @@
     "directory": "balancer-js"
   },
   "bugs": {
-    "url": "https://github.com/balancer-labs/balancer-sdk/issues"
+    "url": "https://github.com/sobal/balancer-sdk/issues"
   },
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
