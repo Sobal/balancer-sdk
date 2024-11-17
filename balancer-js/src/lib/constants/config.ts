@@ -546,9 +546,9 @@ export const BALANCER_NETWORK_CONFIG: Record<Network, BalancerNetworkConfig> = {
       },
     },
     urls: {
-      subgraph: 'https://neon-subgraph.sobal.fi/sobal-pools',
+      subgraph: 'https://thegraph.neonevm.org/subgraphs/name/sobal/sobal-pools',
       gaugesSubgraph: '', // no guages on neon
-      blockNumberSubgraph: 'https://neon-subgraph.sobal.fi/sobal-neon-blocks',
+      blockNumberSubgraph: 'https://thegraph.neonevm.org/subgraphs/name/sobal/sobal-neon-blocks',
     },
     thirdParty: {
       coingecko: {
